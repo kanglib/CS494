@@ -1,4 +1,2 @@
 #!/bin/sh
-
-cd /arcus/scripts
-./arcus.sh quicksetup conf/local.sample.json
+bin/memcached -m 4000 -p 11211 -E lib/default_engine.so

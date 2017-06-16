@@ -8,4 +8,11 @@ RUN apt-get -qq install libtool libcppunit-dev python-setuptools python-dev git
 RUN git clone https://github.com/naver/arcus.git
 WORKDIR /arcus/scripts
 RUN ./build.sh
-ADD run.sh ~
+ADD run.sh /arcus/run.sh
+
+WORKDIR /arcus
+RUN useradd arcus
+RUN chown -R arcus:arcus .
+
+USER arcus
+EXPOSE 11211
